@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiElement Events</title>
+</head>
+<body>
+    <button>Button1</button>
+    <button>Button2</button>
+    <button>Button3</button>
+    <script>
+         var buttons = document.getElementsByTagName("button")
+         for(let b of buttons) {
+             b.addEventListener("click", 
+                  (e) => console.log(`You clicked on ${e.target.innerText}`))
+         }
+    </script>
+    
+</body>
+</html>

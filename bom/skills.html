@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills</title>
+</head>
+
+<body>
+    <h2>Skills</h2>
+    Skill : <input type="text" id="txtSkill" />
+    <p></p>
+    <button onClick="add()">Add</button>
+    <ul id="listSkills">
+    </ul>
+    <script>
+
+        function add() {
+            var skill = document.getElementById("txtSkill").value
+            var skills = localStorage.getItem("skills")
+            if (skills == null)  // not found 
+                skills = skill
+            else
+                skills = `${skills},${skill}`
+            localStorage.setItem("skills", skills)
+            listSkills()
+        }
+
+        function listSkills() {
+            var data = localStorage.getItem("skills")
+            if (data == null)
+                return;
+
+            var skills = data.split(",")
+            var list = ""
+            for (var skill of skills) {
+                list += `<li>${skill}</li>`
+            }
+
+            document.getElementById("listSkills").innerHTML = list;
+
+        }
+    </script>
+
+</body>
+
+</html>

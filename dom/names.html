@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Names</title>
+    <script>
+        var names = []
+
+        function addName() {
+            // add name
+            var name = document.getElementById("txtName").value
+            names.push(name)
+            listNames()
+        }
+
+        function deleteName() {
+            // delete name 
+            var name = document.getElementById("txtName").value
+            var pos = names.indexOf(name)  // find out position
+            if (pos === -1) {  // name not found 
+                alert("Sorry! Name not found!")
+                return
+            }
+
+            names.splice(pos, 1)  // delete element at index pos 
+            listNames()
+        }
+
+        function listNames() {
+            var output = ""
+            for (let n of names) {
+                output += n + "<br/>"
+            }
+
+            document.getElementById("divNames").innerHTML = output
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Names</h2>
+    Name : <input type="text" id="txtName" />
+    <p></p>
+    <button onClick="addName()">Add</button>
+    <button onClick="deleteName()">Delete</button>
+
+    <P></P>
+    <div id="divNames">
+
+    </div>
+
+</body>
+
+</html>

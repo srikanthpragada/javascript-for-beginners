@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Events</title>
+    <script>
+       function showMousePointer(e) {
+         //console.log(e)
+         var msg = `X = ${e.clientX}, Y = ${e.clientY}`
+         document.getElementById("output").innerHTML = msg
+       }
+
+    </script>
+</head>
+<body>
+     <div  onmousemove="showMousePointer(event)"  id="div1" 
+           style="height:200px;background-color: tan">
+        This is a simple DIV
+
+     </div>
+     <h2 id="output"></h2>
+</body>
+</html>

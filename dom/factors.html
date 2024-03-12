@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factors</title>
+    <script>
+        function showFactors() {
+            var num = parseInt(document.getElementById("txtNum").value)
+            var output = ""
+            for (let i = 2; i <= num / 2; i++) {
+                if (num % i === 0)
+                    output = output + `<li>${i}</li>`
+            }
+
+            var factors = document.getElementById("factors")
+            var msg = document.getElementById("msg")
+
+            // clear all 
+            factors.innerHTML = ""
+            msg.innerText = ""
+
+            if (output === "") // no factors found 
+                msg.innerText = "Sorry! No factors found as it is prime number!"
+            else
+                factors.innerHTML = output
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Factors</h2>
+    Number : <input type="number" id="txtNum" /> <span style="color:red" id="msg"></span>
+    <p></p>
+    <button onClick="showFactors()">Show</button>
+    <p></p>
+    <ul style="color:blue" id="factors"></ul>
+</body>
+
+</html>
